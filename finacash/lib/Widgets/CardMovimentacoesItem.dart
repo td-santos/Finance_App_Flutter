@@ -1,0 +1,62 @@
+import 'package:finacash/Helper/Movimentacoes_helper.dart';
+import 'package:flutter/material.dart';
+
+class CardMovimentacoesItem extends StatelessWidget {
+
+  final Movimentacoes mov;
+
+  const CardMovimentacoesItem({Key key, this.mov}) : super(key: key);
+  
+  @override  
+  Widget build(BuildContext context) {
+
+    var width = MediaQuery.of(context).size.width;
+    var height = MediaQuery.of(context).size.height;
+
+    return Container(
+      //padding: EdgeInsets.all(width * 0.005),
+      width: width,
+      height: height * 0.08,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+              Container(            
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(15),
+              boxShadow: [BoxShadow(
+                color: Colors.grey[300],
+                blurRadius: 10,
+                offset: Offset(2, 3)
+              )]
+            ),
+            child: Padding(
+              padding: EdgeInsets.all(width * 0.03),
+              child:mov.tipo == "r" 
+              ? Icon(Icons.arrow_downward,color: Colors.green,size: width * 0.06,)
+              : Icon(Icons.arrow_upward,color: Colors.red, size:width * 0.06)
+            ),
+          ),
+          Padding(
+            padding:  EdgeInsets.only(left: width * 0.03),
+            child: Text(mov.descricao,textAlign: TextAlign.start, style: TextStyle(
+              color:mov.tipo == "r" ? Colors.green[700]:Colors.red[700],
+              fontWeight: FontWeight.bold,
+              fontSize: width * 0.044,            
+            ),),
+          ),
+            ],
+          ),
+          Text(mov.tipo == "r" ? "+ ${mov.valor}" :" ${mov.valor}", style: TextStyle(
+            color: mov.tipo == "r" ? Colors.green[700] : Colors.red[700],
+            fontWeight: FontWeight.bold,
+            fontSize: width * 0.044,
+            
+          ),),
+        ],
+      ),
+    );
+  }
+}
