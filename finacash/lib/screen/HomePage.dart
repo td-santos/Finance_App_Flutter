@@ -1,8 +1,10 @@
 import 'package:finacash/Helper/Movimentacoes_helper.dart';
 import 'package:finacash/Widgets/AnimatedBottomNavBar.dart';
 import 'package:finacash/Widgets/CardMovimentacoesItem.dart';
+import 'package:finacash/Widgets/CustomDialog.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:intl/intl.dart';
 import 'package:table_calendar/table_calendar.dart';
 
@@ -18,6 +20,8 @@ class _HomePageState extends State<HomePage> {
   var total;
   var width;
   var height;
+  bool recDesp = false;
+
   TextEditingController _valorController = TextEditingController();
   CalendarController calendarController;
   MovimentacoesHelper movimentacoesHelper = MovimentacoesHelper();
@@ -88,8 +92,8 @@ class _HomePageState extends State<HomePage> {
         });
       }
 
-      print("TOTAL: $total");
-      print("All MovMES: $listmovimentacoes");
+      //print("TOTAL: $total");
+      //print("All MovMES: $listmovimentacoes");
     });
   }
 
@@ -109,12 +113,31 @@ class _HomePageState extends State<HomePage> {
     //_allMov();
   }
 
+  _dialogAddRecDesp(){
+
+    showDialog(
+      context: context,      
+      builder: (context){
+        return CustomDialog();/*AlertDialog(
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+          title: Text("Adicionar Valores",textAlign: TextAlign.center, style: TextStyle(
+            fontWeight: FontWeight.bold,
+            color: Colors.lightBlue
+          ),
+          ),
+          backgroundColor: Colors.white,
+          content: CustomDialog()
+        );*/
+      }
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     width = MediaQuery.of(context).size.width;
     height = MediaQuery.of(context).size.height;
     
-
+    _allMovMes(dataFormatada);
     return Scaffold(      
       body: SingleChildScrollView(
         primary: false,
@@ -201,10 +224,12 @@ class _HomePageState extends State<HomePage> {
                               padding: EdgeInsets.only(right: width * 0.04),
                               child: GestureDetector(
                                 onTap: () {
-                                  Navigator.push(
+                                  _dialogAddRecDesp();
+                                 /* Navigator.push(
                                       context,
                                       MaterialPageRoute(
                                           builder: (context) => AddReceita()));
+                                 */
                                 },
                                 child: Container(
                                   width: width * 0.12,

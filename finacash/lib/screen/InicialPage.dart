@@ -6,6 +6,7 @@ import 'package:finacash/screen/DespesasResumo.dart';
 import 'package:finacash/screen/HomePage.dart';
 import 'package:finacash/screen/ReceitasResumo.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 
 import 'package:table_calendar/table_calendar.dart';
@@ -54,6 +55,17 @@ class _InicialPageState extends State<InicialPage> {
 
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
+
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    //systemNavigationBarColor: Colors.lightBlue[700], // navigation bar color
+    //statusBarColor: Colors.lightBlue[700],
+    systemNavigationBarIconBrightness: Brightness.dark,
+    systemNavigationBarColor: Colors.white,
+    statusBarIconBrightness: Brightness.light // status bar color
+  ));
+
+    SystemChrome.setPreferredOrientations(
+        [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
     
 
     List<Widget> telas =[
