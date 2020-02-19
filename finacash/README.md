@@ -1,16 +1,39 @@
-# finacash
+# Finance_App_Flutter
+<br>
+Aplicatico de Finanças Pessoais , com o ituito de prover maior controle financeiro para o usuário.
+<br><br>
+<div align="left">
+  
+ <img  width="200" height="400" src="assets/print_1.png"><span style="padding-left:2px"></span>
+ <img  width="200" height="400" src="assets/print_2.png"><span style="padding-left:2px"></span>
+ <img  width="200" height="400" src="assets/print_3.png"><span style="padding-left:2px"></span>
+ <img  width="200" height="400" src="assets/print_4.png"><span style="padding-left:2px"></span>
+ <img  width="200" height="400" src="assets/print_5.png"><span style="padding-left:2px"></span>
+ <img  width="200" height="400" src="assets/print_6.png"><span style="padding-left:2px"></span>
+ <img  width="200" height="400" src="assets/print_7.png"><span style="padding-left:2px"></span>
+ 
 
-A new Flutter application.
+ 
+ </div>
+ <br><br>
+ 
+ # O App aborda:
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+    • NavigaionBar Animated
+  
+    • ListView.
+    
+    • TableCalendar
+  
+    • SqFlite ( persistência de dados)
+  
+    • Custom Dialog
+    
+    • Dismissible
+    
+    • SnackBar
+    
+    • Custom TimeLine( Telas 'Despesas' e 'Receitas')
+    
+    
+    
