@@ -37,9 +37,9 @@ dev_dependencies:
 flutter_icons:
   android: true 
   ios: true
-  image_path: "dev_assets/finacash_512.png"
-  adaptive_icon_background: "#00BCD4"
-  adaptive_icon_foreground: "dev_assets/finacash_512.png"
+  image_path: "dev_assets/logo.png"
+  adaptive_icon_background: "#49a5b2" #"#00BCD4"
+  adaptive_icon_foreground: "dev_assets/logo_adaptive.png"
 
 
 
