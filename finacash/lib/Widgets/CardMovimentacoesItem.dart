@@ -91,7 +91,7 @@ class CardMovimentacoesItem extends StatelessWidget {
 
     return GestureDetector(
       onLongPress: (){
-        _dialogConfimacao(context, width);
+        //_dialogConfimacao(context, width);
         
       },
       child: Container(
