@@ -17,6 +17,11 @@ Aplicatico de Finanças Pessoais , com o ituito de prover maior controle finance
  </div>
  <br><br>
  
+  # Link Demonstrativo
+ 
+ [Finance App Video](https://youtu.be/pRvfg-vv_Ig)
+ <br><br>
+ 
  # O App aborda:
 
     • NavigaionBar Animated
