@@ -45,6 +45,7 @@ class _CustomDialogState extends State<CustomDialog> {
                   Flexible(
                     child: TextField(
                         controller: _controllerValor,
+                        maxLength: 7,
                         style: TextStyle(fontSize: width * 0.05),
                         keyboardType:
                             TextInputType.numberWithOptions(decimal: true),
@@ -120,6 +121,7 @@ class _CustomDialogState extends State<CustomDialog> {
               ),
               TextField(
                   controller: _controllerDesc,
+                  maxLength: 20,
                   style: TextStyle(fontSize: width * 0.05),
                   keyboardType: TextInputType.text,
                   maxLines: 1,

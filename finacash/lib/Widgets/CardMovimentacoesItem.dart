@@ -6,9 +6,10 @@ import 'package:flutter/material.dart';
 class CardMovimentacoesItem extends StatelessWidget {
 
   final Movimentacoes mov;
+  final bool lastItem;
 
 
-  const CardMovimentacoesItem({Key key, this.mov}) : super(key: key);
+  const CardMovimentacoesItem({Key key, this.mov,this.lastItem=false}) : super(key: key);
 
   _dialogConfimacao(BuildContext context, double width){
     showDialog(
@@ -88,8 +89,10 @@ class CardMovimentacoesItem extends StatelessWidget {
     var height = MediaQuery.of(context).size.height;
 
     
-
-    return GestureDetector(
+    
+    return Column(
+      children: <Widget>[
+        GestureDetector(
       onLongPress: (){
         //_dialogConfimacao(context, width);
         
@@ -122,11 +125,14 @@ class CardMovimentacoesItem extends StatelessWidget {
           ),
           Padding(
             padding:  EdgeInsets.only(left: width * 0.03),
-            child: Text(mov.descricao,textAlign: TextAlign.start, style: TextStyle(
+            child: Container(
+              width: width * 0.4,
+              child: Text(mov.descricao,overflow: TextOverflow.ellipsis, textAlign: TextAlign.start, style: TextStyle(
               color:mov.tipo == "r" ? Colors.green[700]:Colors.red[700],
               fontWeight: FontWeight.bold,
               fontSize: width * 0.044,            
             ),),
+            )
           ),
             ],
           ),
@@ -139,6 +145,10 @@ class CardMovimentacoesItem extends StatelessWidget {
         ],
       ),
     ),
+    ),
+    lastItem ==true ? Container(height:80,) : Container()
+      ],
     );
+    
   }
 }

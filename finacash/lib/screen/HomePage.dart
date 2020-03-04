@@ -48,10 +48,10 @@ class _HomePageState extends State<HomePage> {
   }
 
   _saldoTamanho(String conteudo) {
-    if (conteudo.length > 5) {
-      return width * 0.2;
+    if (conteudo.length > 8) {
+      return width * 0.08;
     } else {
-      return width * 0.3;
+      return width * 0.1;
     }
   }
 
@@ -99,6 +99,7 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  
   @override
   void initState() {
     // TODO: implement initState
@@ -134,6 +135,7 @@ class _HomePageState extends State<HomePage> {
       body: SingleChildScrollView(
         primary: false,
         physics: NeverScrollableScrollPhysics(),
+        //physics: ClampingScrollPhysics(),
         //height: height,
         //width: width,
         child: Column(
@@ -206,15 +208,20 @@ class _HomePageState extends State<HomePage> {
                           children: <Widget>[
                             Padding(
                               padding: EdgeInsets.only(left: width * 0.05),
-                              child: Text(
+                              child: Container(
+                                width: width * 0.6,
+                                
+                                child: Text(
                                 saldoAtual,
+                                overflow: TextOverflow.ellipsis,
                                 style: TextStyle(
                                     color: Colors
                                         .lightBlue[700], //Colors.indigo[400],
                                     fontWeight: FontWeight.bold,
-                                    fontSize:
-                                        width * 0.1 //_saldoTamanho(saldoAtual)
+                                    fontSize: _saldoTamanho(saldoAtual),
+                                        //width * 0.1 //_saldoTamanho(saldoAtual)
                                     ),
+                              ),
                               ),
                             ),
                             Padding(
@@ -363,8 +370,8 @@ class _HomePageState extends State<HomePage> {
                       },
                       key: ValueKey(mov.id),
                       background: Container(
-                        padding: EdgeInsets.only(right: 10),
-                        alignment: Alignment.centerRight,
+                        padding: EdgeInsets.only(right: 10 ,top: width * 0.04),
+                        alignment: Alignment.topRight,
                         color: Colors.red,
                         child: Icon(
                           Icons.delete_outline,
@@ -374,11 +381,16 @@ class _HomePageState extends State<HomePage> {
                       ),
                       child: CardMovimentacoesItem(
                         mov: mov,
+                        lastItem: listmovimentacoes[index] == listmovimentacoes.last? true : false,
                       ),
                     );
                   },
                 ),
               ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: 20),
+              child: Text( "EEEEEEEEE"),
             )
           ],
         ),
