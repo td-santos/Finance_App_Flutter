@@ -11,6 +11,7 @@ main() {
     runApp(MaterialApp(
     home: InicialPage(),
     debugShowCheckedModeBanner: false,
+    
   ));
   });
   

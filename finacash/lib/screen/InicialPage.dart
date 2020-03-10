@@ -1,7 +1,6 @@
 import 'package:finacash/Helper/Movimentacoes_helper.dart';
 import 'package:finacash/Widgets/AnimatedBottomNavBar.dart';
 import 'package:finacash/Widgets/CardMovimentacoesItem.dart';
-import 'package:finacash/screen/AddReceita.dart';
 import 'package:finacash/screen/DespesasResumo.dart';
 import 'package:finacash/screen/HomePage.dart';
 import 'package:finacash/screen/ReceitasResumo.dart';

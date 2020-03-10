@@ -48,6 +48,7 @@ class MovimentacoesHelper{
   }
 
   Future<Movimentacoes> saveMovimentacao(Movimentacoes movimentacoes)async{
+    print("chamada save");
     Database dbMovimentacoes = await db;
     movimentacoes.id = await dbMovimentacoes.insert(movimentacaoTABLE, movimentacoes.toMap());
     return movimentacoes;
@@ -75,6 +76,8 @@ class MovimentacoesHelper{
   }
 
   Future<int> updateMovimentacao(Movimentacoes movimentacoes)async{
+    print("chamada update");
+    print(movimentacoes.toString());
     Database dbMovimentacoes = await db;
     return await dbMovimentacoes.update(movimentacaoTABLE,movimentacoes.toMap(),
     where: "$idColumn =?",

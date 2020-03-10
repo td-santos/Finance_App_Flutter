@@ -5,12 +5,17 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class CustomDialog extends StatefulWidget {
+
+  final Movimentacoes mov;
+  const CustomDialog({Key key, this.mov}) : super(key: key);
+
   @override
   _CustomDialogState createState() => _CustomDialogState();
 }
 
 class _CustomDialogState extends State<CustomDialog> {
   var formatter = new DateFormat('dd-MM-yyyy');
+  bool edit;
   
   int _groupValueRadio = 1;
   Color _colorContainer = Colors.green[400];
@@ -19,6 +24,30 @@ class _CustomDialogState extends State<CustomDialog> {
   TextEditingController _controllerDesc = TextEditingController();
 
   MovimentacoesHelper _movHelper = MovimentacoesHelper();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    if(widget.mov != null){
+      print(widget.mov.toString());
+
+      edit = true;
+      if(widget.mov.tipo == "d"){ 
+        _groupValueRadio =2;
+        _colorContainer = Colors.red[300];
+        _colorTextButtom = Colors.red[300];
+        }
+      
+      _controllerValor.text = widget.mov.valor.toString().replaceAll("-", "");
+      _controllerDesc.text = widget.mov.descricao;
+    }else{
+      edit = false;
+    }
+    print(" edit -> $edit");
+  }
+
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -168,6 +197,7 @@ class _CustomDialogState extends State<CustomDialog> {
                     ),
                     GestureDetector(
                       onTap: (){
+                        
                         if(_controllerValor.text.isNotEmpty && _controllerDesc.text.isNotEmpty){
                           Movimentacoes mov = Movimentacoes();
                           String valor;
@@ -184,12 +214,14 @@ class _CustomDialogState extends State<CustomDialog> {
                             
                             mov.valor = double.parse(valor);
                             mov.tipo ="r";
-                            _movHelper.saveMovimentacao(mov);
+                            if(widget.mov != null){ mov.id = widget.mov.id;}
+                            edit == false ? _movHelper.saveMovimentacao(mov) : _movHelper.updateMovimentacao(mov);
                           }
                           if(_groupValueRadio == 2){
                             mov.valor = double.parse("-" + valor);
                             mov.tipo ="d";
-                            _movHelper.saveMovimentacao(mov);
+                            if(widget.mov != null){ mov.id = widget.mov.id;}
+                            edit == false ? _movHelper.saveMovimentacao(mov) : _movHelper.updateMovimentacao(mov);
                           }
                           Navigator.pop(context);
                           //initState();
@@ -207,7 +239,7 @@ class _CustomDialogState extends State<CustomDialog> {
                         ),
                         child: Center(
                           child: Text(
-                            "Confirmar",
+                            edit == false ?"Confirmar" : "Editar",
                             style: TextStyle(
                                 color: _colorTextButtom,
                                 fontWeight: FontWeight.bold,

@@ -3,6 +3,8 @@
 import 'package:finacash/Helper/Movimentacoes_helper.dart';
 import 'package:flutter/material.dart';
 
+import 'CustomDialog.dart';
+
 class CardMovimentacoesItem extends StatelessWidget {
 
   final Movimentacoes mov;
@@ -82,6 +84,14 @@ class CardMovimentacoesItem extends StatelessWidget {
     );
   }
   
+  _dialogEdit(BuildContext context, double width, Movimentacoes movimentacao){
+    print(movimentacao.toString());
+    showDialog(
+        context: context,
+        builder: (context) {
+          return CustomDialog(mov: movimentacao,);
+        });
+  }
   @override  
   Widget build(BuildContext context) {
 
@@ -93,7 +103,8 @@ class CardMovimentacoesItem extends StatelessWidget {
     return Column(
       children: <Widget>[
         GestureDetector(
-      onLongPress: (){
+      onTap: (){
+        _dialogEdit(context, width, mov);
         //_dialogConfimacao(context, width);
         
       },

@@ -10,7 +10,7 @@ import 'package:flutter/rendering.dart';
 import 'package:intl/intl.dart';
 import 'package:table_calendar/table_calendar.dart';
 
-import 'AddReceita.dart';
+
 
 class HomePage extends StatefulWidget {
   @override
