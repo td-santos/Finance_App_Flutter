@@ -1,6 +1,6 @@
 # Finance_App_Flutter
 <br>
-Aplicatico de Finanças Pessoais , com o ituito de prover maior controle financeiro para o usuário.
+Aplicatico de Finanças Pessoais , com o intuito de prover maior controle financeiro para o usuário.
 <br><br>
 <div align="left">
   
